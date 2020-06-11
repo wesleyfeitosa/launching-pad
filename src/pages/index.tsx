@@ -1,9 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
+import styles from './index.module.css';
+
 const Home: React.FC = () => {
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title>Launching Pad</title>
         <link rel="icon" href="/favicon.ico" />
@@ -13,8 +15,19 @@ const Home: React.FC = () => {
           content="Aplicação de listagem dos próximos lançamentos da SpaceX"
         />
       </Head>
-      <div>Launching Pad</div>
-    </>
+
+      <div className={styles.content}>
+        <h2>LAUNCHING PAD</h2>
+
+        <div className={styles.menu}>
+          <ul>
+            <li>Próximos lançamentos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.background} />
+    </div>
   );
 };
 

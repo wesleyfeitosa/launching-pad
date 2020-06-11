@@ -1,0 +1,39 @@
+.container {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+}
+
+.content {
+  width: 360px;
+  box-shadow: 10px 0px 30px 14px rgba(0,0,0,1), 68px 0px 140px 31px rgba(0,0,0,1);
+  z-index: 1;
+  color: #fff;
+  padding: 60px;
+}
+
+.menu {
+  margin-top: 60px;
+}
+
+.menu ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.menu ul li {
+  border-left: 1px ridge #fff;
+  padding: 5px 0 5px 30px;
+  transition: 0.3s;
+  font-size: 0.89rem;
+}
+
+.menu ul li:hover {
+  transform: translateX(10px);
+}
+
+.background {
+  flex: 1;
+  background-image: url('../../public/images/backgroundhome.jpg');
+  background-size: cover;
+}
