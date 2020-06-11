@@ -25,11 +25,16 @@
   border-left: 1px ridge #fff;
   padding: 5px 0 5px 30px;
   transition: 0.3s;
-  font-size: 0.89rem;
 }
 
 .menu ul li:hover {
   transform: translateX(10px);
+}
+
+.menu ul li a {
+  font-size: 0.89rem;
+  text-decoration: none;
+  color: #fff;
 }
 
 .background {

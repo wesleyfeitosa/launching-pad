@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import styles from './index.module.css';
 
@@ -21,7 +22,11 @@ const Home: React.FC = () => {
 
         <div className={styles.menu}>
           <ul>
-            <li>Próximos lançamentos</li>
+            <li>
+              <Link href="/launches/upcoming">
+                <a>Próximos lançamentos</a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
