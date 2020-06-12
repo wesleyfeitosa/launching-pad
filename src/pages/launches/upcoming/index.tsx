@@ -1,7 +1,12 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import api from '../../../services/api';
+import Head from 'next/head';
+import { FiArrowLeft } from 'react-icons/fi';
+import Router from 'next/router';
+import Link from 'next/link';
 
+import api from '../../../services/api';
+import Date from '../../../components/date';
 import styles from './styles.module.css';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -20,11 +25,12 @@ interface UpcomingLaunchesData {
   upcomingLaunches: {
     flight_number: number;
     mission_name: string;
-    launch_date_utc: Date;
+    launch_date_utc: string;
     rocket: {
-      rocket_id: string;
       rocket_name: string;
-      rocket_type: string;
+    };
+    links: {
+      mission_patch_small: string;
     };
   }[];
 }
@@ -32,12 +38,50 @@ interface UpcomingLaunchesData {
 const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
   return (
     <div className={styles.container}>
-      <h2>Upcoming Launches</h2>
-      <div className="content">
+      <Head>
+        <title>Próximos Lançamentos</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="index/follow" />
+        <meta
+          name="description"
+          content="Página com uma lista dos próximos lançamentos da Spacex, mostrando informações como nome da missão, foguete, carga e dados estatísticos"
+        />
+      </Head>
+
+      <header>
+        <h2>Próximos Lançamentos da SpaceX</h2>
+        <FiArrowLeft size={26} onClick={() => Router.back()} />
+      </header>
+
+      <ul className={styles.content}>
         {upcomingLaunches.map((launch) => (
-          <div key={launch.flight_number}>{launch.mission_name}</div>
+          <li key={launch.flight_number}>
+            <Link href="">
+              <div className={styles.launch}>
+                <div className={styles.patch_image}>
+                  <img
+                    src={
+                      launch.links.mission_patch_small
+                        ? launch.links.mission_patch_small
+                        : '/images/spacexdefault.png'
+                    }
+                    alt={launch.mission_name}
+                  />
+                </div>
+                <div className={styles.flight_number}>
+                  Voo Nº&nbsp;
+                  <span>{launch.flight_number}</span>
+                </div>
+                <div className={styles.mission_name}>{launch.mission_name}</div>
+                <div className={styles.rocket}>{launch.rocket.rocket_name}</div>
+                <div className={styles.date}>
+                  <Date dateString={launch.launch_date_utc} />
+                </div>
+              </div>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
