@@ -39,6 +39,9 @@
     "camelcase": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "import/no-duplicates": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-danger": "off",
+    "class-methods-use-this": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
