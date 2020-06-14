@@ -13,11 +13,13 @@ const Home: React.FC = () => {
           SpaceX
         </title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="robots" content="index/follow" />
+        <meta name="charset" content="UTF-8" />
+        <meta name="robots" content="index, follow" />
         <meta
           name="description"
           content="Aplicação que mostra informações, relatórios, imagens e curiosidades sobre os lançamentos de foguetes da SpaceX"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <div className={styles.content}>

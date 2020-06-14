@@ -41,11 +41,13 @@ const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
       <Head>
         <title>Próximos Lançamentos da SpaceX</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="robots" content="index/follow" />
+        <meta name="charset" content="UTF-8" />
+        <meta name="robots" content="noindex, follow" />
         <meta
           name="description"
           content="Página com uma lista dos próximos lançamentos da Spacex, mostrando informações como nome da missão, foguete, carga e dados estatísticos"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
       <header>
