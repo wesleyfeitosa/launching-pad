@@ -13,9 +13,10 @@
   padding: 60px;
 }
 
-.container header h2 {
+.container header h1 {
   margin-block-start: 0;
   margin-block-end: 0;
+  font-size: 1.5em;
 }
 
 .container .content {
@@ -30,10 +31,6 @@
 
 .container .content li:hover {
   transform: translateX(10px);
-}
-
-.container .content li + li {
-  margin-top: 20px;
 }
 
 .container .content .launch {

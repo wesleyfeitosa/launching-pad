@@ -39,7 +39,7 @@ const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Próximos Lançamentos</title>
+        <title>Próximos Lançamentos da SpaceX</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="index/follow" />
         <meta
@@ -49,7 +49,7 @@ const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
       </Head>
 
       <header>
-        <h2>Próximos Lançamentos da SpaceX</h2>
+        <h1>Próximos Lançamentos da SpaceX</h1>
         <FiArrowLeft size={26} onClick={() => Router.back()} />
       </header>
 
