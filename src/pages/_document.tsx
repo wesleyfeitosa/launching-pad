@@ -12,7 +12,6 @@ class MyDocument extends Document {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-169305250-1');
       `,
     };
@@ -25,14 +24,12 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript>
-            <>
-              <script
-                async
-                src="https://www.googletagmanager.com/gtag/js?id=UA-169305250-1"
-              />
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=UA-169305250-1"
+            />
 
-              <script dangerouslySetInnerHTML={this.setGoogleTags()} />
-            </>
+            <script dangerouslySetInnerHTML={this.setGoogleTags()} />
           </NextScript>
         </body>
       </Html>
