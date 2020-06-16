@@ -31,6 +31,7 @@
 
 .container .content li:hover {
   transform: translateX(10px);
+  cursor: pointer;
 }
 
 .container .content .launch {

@@ -58,7 +58,10 @@ const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
       <ul className={styles.content}>
         {upcomingLaunches.map((launch) => (
           <li key={launch.flight_number}>
-            <Link href="">
+            <Link
+              href="/launches/upcoming/[id]"
+              as={`/launches/upcoming/${launch.flight_number}`}
+            >
               <div className={styles.launch}>
                 <div className={styles.patch_image}>
                   <img
