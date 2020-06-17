@@ -7,7 +7,8 @@ import Link from 'next/link';
 
 import api from '../../../services/api';
 import Date from '../../../components/date';
-import styles from './styles.module.css';
+import LaunchDTO from '../../../dtos/LaunchDTO';
+import styles from './index.module.css';
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await api.get('launches/upcoming');
@@ -22,17 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 interface UpcomingLaunchesData {
-  upcomingLaunches: {
-    flight_number: number;
-    mission_name: string;
-    launch_date_utc: string;
-    rocket: {
-      rocket_name: string;
-    };
-    links: {
-      mission_patch_small: string;
-    };
-  }[];
+  upcomingLaunches: LaunchDTO[];
 }
 
 const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
@@ -68,7 +59,7 @@ const Upcoming: React.FC<UpcomingLaunchesData> = ({ upcomingLaunches }) => {
                     src={
                       launch.links.mission_patch_small
                         ? launch.links.mission_patch_small
-                        : '/images/spacexdefault.png'
+                        : '/images/foguete.png'
                     }
                     alt={launch.mission_name}
                   />

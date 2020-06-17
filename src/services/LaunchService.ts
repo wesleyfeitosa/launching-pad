@@ -1,6 +1,6 @@
 import api from './api';
 
-import UpcomingLaunchesDTO from '../dtos/IUpcomingLaunchesDTO';
+import LaunchDTO from '../dtos/LaunchDTO';
 
 interface IUpcomingIdLaunches {
   params: {
@@ -9,11 +9,11 @@ interface IUpcomingIdLaunches {
 }
 
 export async function getUpcomingIdLaunches(): Promise<IUpcomingIdLaunches[]> {
-  const response = await api.get<UpcomingLaunchesDTO[]>('launches/upcoming');
+  const response = await api.get<LaunchDTO[]>('launches/upcoming');
 
-  const upcomingLaunches = response.data;
+  const launchData = response.data;
 
-  return upcomingLaunches.map((launch) => {
+  return launchData.map((launch) => {
     return {
       params: {
         id: String(launch.flight_number),
@@ -22,10 +22,8 @@ export async function getUpcomingIdLaunches(): Promise<IUpcomingIdLaunches[]> {
   });
 }
 
-export async function getLaunchData(
-  id: string | string[]
-): Promise<UpcomingLaunchesDTO> {
-  const response = await api.get(`launches/${id}`);
+export async function getLaunchData(id: string | string[]): Promise<LaunchDTO> {
+  const response = await api.get<LaunchDTO>(`launches/${id}`);
 
   const launchSelected = response.data;
 
